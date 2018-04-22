@@ -1,11 +1,9 @@
-*******************************************************************************
-************************#Gohan Ethermine Scripts Package#************************
-*******************************************************************************
+# Gohan Ethermine Scripts Package
 
-Debian based distros only, as these scripts rely heavily on apt.
-Tested to be functional on Ubuntu Server 16.04 LTS and Mint 18.2.
+#### Debian based distros only, as these scripts rely heavily on apt.
+#### Tested to be functional on Ubuntu Server 16.04 LTS and Mint 18.2.
 
-INSTALLATION:
+## Installation:
 
 - Download this package to your $HOME directory on Linux 
 `git clone https://github.com/xcalibur839/ethscripts.git ~/mining`
@@ -43,7 +41,7 @@ to include any other options.
 
 Reboot your machine to ensure everything loads properly `sudo reboot`
 
-USAGE:
+## Usage:
 
 - Run the start script in the $HOME directory to begin mining in a GNU screen
 session `~/start`
