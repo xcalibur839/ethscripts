@@ -1,0 +1,18 @@
+#!/bin/bash
+echo " ************ Installing required software ************ "
+sudo apt update
+sudo apt -y upgrade
+sudo apt install -y htop
+sudo apt install -y lm-sensors
+
+echo " ************ Setting up scheduled task ************ "
+cd ~/mining/
+crontab .customCron
+
+echo " ************ Setting permissions ************ "
+chmod +x -R . ~/mining/scripts/* ~/mining/logs/autoarchive
+
+echo " ************ Creating shortcuts ************ "
+ln -s ~/mining/scripts/start ~/
+ln -s ~/mining/scripts/update ~/
+ln -s ~/mining/scripts/getNewMiner ~/

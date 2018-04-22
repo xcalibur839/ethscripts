@@ -1,0 +1,15 @@
+#!/bin/bash
+echo "*************************************************"
+echo "******************** WARNING ********************"
+echo "*************************************************"
+echo
+echo "This will attempt to detect all temp sensors."
+echo "In rare cases, this may cause hardware damage."
+echo "Would you like to continue?"
+select ce in "Continue" "Exit"
+do
+    case $ce in
+        Continue ) sensors-detect --auto; exit;;
+        Exit ) exit;;
+    esac
+done

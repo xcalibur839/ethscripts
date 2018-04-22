@@ -1,0 +1,5 @@
+#!/bin/bash
+if [ ! -d ~/mining/logs/archive/$(date +%Y) ]; then
+	mkdir ~/mining/logs/archive/$(date +%Y)
+fi
+mv ~/mining/logs/mining.log ~/mining/logs/archive/$(date +%Y)/$(date +%B).log

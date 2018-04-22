@@ -1,0 +1,9 @@
+#!/bin/bash
+cd ~/mining/downloads/
+wget https://developer.nvidia.com/compute/cuda/9.1/Prod/local_installers/cuda-repo-ubuntu1604-9-1-local_9.1.85-1_amd64
+mv cuda-repo-ubuntu1604-9-1-local_9.1.85-1_amd64 cuda-repo-ubuntu1604-9-1-local_9.1.85-1_amd64.deb
+sudo dpkg -i cuda-repo-ubuntu1604-9-1-local_9.1.85-1_amd64.deb
+sudo apt-key add /var/cuda*/*.pub
+sudo apt update
+sudo apt install -y cuda
+echo "Please reboot the system for the changes to take effect"

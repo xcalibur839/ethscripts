@@ -1,0 +1,103 @@
+#!/bin/bash
+function updatePath {
+    echo "Updating .ethminerpath to $1"
+
+    if [ -e ~/mining/.ethminerpath.old ]
+    then
+        rm ~/mining/.ethminerpath.old
+    fi
+
+    if [ -e ~/mining/.ethminerpath ]
+    then
+        mv ~/mining/.ethminerpath ~/mining/.ethminerpath.old
+    fi
+
+    echo $1 > ~/mining/.ethminerpath
+}
+
+function revertMiner {
+    echo "Attempting to revert .ethminerpath..."
+    if [ -e ~/mining/.ethminerpath.old ]
+    then
+	    rm ~/mining/.ethminerpath
+	    mv ~/mining/.ethminerpath.old ~/mining/.ethminerpath
+        echo "Reverted."
+    else
+	    echo "Backup file not found."
+    fi
+}
+
+function removeDuplicate {
+    echo "Deleting previously downloaded files"
+    dlFile=~/mining/downloads/$1
+    dlFolder=~/mining/ethminer/$2
+
+    if [ -e $dlFile ]
+    then
+        rm $dlFile
+    else
+        echo "$dlFile not found."
+    fi
+
+    if [ -e $dlFolder ]
+    then
+        rm -R $dlFolder
+    else
+        echo "$dlFolder not found."
+    fi
+
+    revertMiner
+}
+
+if [ -z $1 ]
+then
+    echo "No update URL provided. Pass URL as first parameter to update"
+    echo "Attempt to revert to previous version?"
+
+    select yn in "Yes" "No"; do
+        case $yn in
+            Yes ) revertMiner; exit;;
+            No ) exit;;
+        esac
+    done
+else
+    minerFile=$(echo $1 | cut -d'/' -f 9)
+    minerFolder=$(echo $minerFile | cut -d'-' -f 2 | sed 's/[\.]//g')
+
+    if [[ -e ~/mining/downloads/$minerFile ]] || [[ -e ~/mining/ethminer/$minerFolder ]]
+    then
+        echo "This file has already been downloaded"
+        echo "Update .ethminerpath or Retry download?"
+
+        select ync in "Update" "Retry" "Exit"; do
+            case $ync in
+                Update ) updatePath $minerFolder; exit;;
+                Retry ) removeDuplicate $minerFile $minerFolder; break;;
+                Exit ) exit;;
+            esac
+        done
+    fi
+
+    echo "Downloading $minerFile"
+
+    cd ~/mining/downloads
+    wget $1
+
+    echo "Extracting..."
+    tar -xvf $minerFile
+
+    echo "Installing..."
+
+    if [ ! -e ~/mining/ethminer ]
+    then
+        mkdir ~/mining/ethminer
+    fi
+
+    mkdir ~/mining/ethminer/$minerFolder
+    mv bin/ ~/mining/ethminer/$minerFolder
+
+    updatePath $minerFolder
+
+    echo "Done!"
+    sleep 2
+fi
