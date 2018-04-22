@@ -3,7 +3,7 @@
 *******************************************************************************
 
 Debian based distros only, as these scripts rely heavily on apt.
-Tested to be functional on Ubuntu Server 16.04 LTS and Mint 18.2.q
+Tested to be functional on Ubuntu Server 16.04 LTS and Mint 18.2.
 
 INSTALLATION:
 
