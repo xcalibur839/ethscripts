@@ -14,14 +14,14 @@
 You will be asked for your password to continue. Once setup has completed,
 you can install the proper drivers for your graphics card(s) by running the
 approprate install script(s) from the setup directory:
-`"./install AMD drivers"` **AND/OR** `"./install NVIDIA drivers"`
+`./install-AMD-drivers` **AND/OR** `./install-NVIDIA-drivers`
 
 Once the setup has completed and the drivers are installed, reboot the
 computer. There will be 3 new scripts in your $HOME folder. 
 
 (optional) To setup the Sensors program, run the detect temp sensors script in
 the setup directory, and reboot the computer:
-`sudo "~/mining/setup/detect temp sensors"` **then** `sudo reboot`
+`sudo ~/mining/setup/detect-temp-sensors` **then** `sudo reboot`
 
 Download the mining software that you wish to use by following these steps:
 - Navigate to the ethereum mining github releases page:
