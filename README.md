@@ -3,25 +3,27 @@
 *******************************************************************************
 
 Debian based distros only, as these scripts rely heavily on apt.
-Tested to be functional on Ubuntu Server 16.04 LTS and Mint 18.
+Tested to be functional on Ubuntu Server 16.04 LTS and Mint 18.2.q
 
 INSTALLATION:
 
-- Download and extract this mining folder to your $HOME directory on Linux.
+- Download this package to your $HOME directory on Linux 
+(git clone https://github.com/xcalibur839/ethscripts.git ~/mining)
 - Change to the setup directory (cd ~/mining/setup/)
 - Set the permissions of the setup script (chmod +x setup)
 - Run the setup script (./setup)
 
 You will be asked for your password to continue. Once setup has completed,
 you can install the proper drivers for your graphics card(s) by running the
-approprate install script(s) from the setup directory.
+approprate install script(s) from the setup directory:
+("./install AMD drivers") AND/OR ("./install NVIDIA drivers")
 
 Once the setup has completed and the drivers are installed, reboot the
 computer. There will be 3 new scripts in your $HOME folder. 
 
 (optional) To setup the Sensors program, run the detect temp sensors script in
 the setup directory, and reboot the computer:
-(sudo "~/mining/setup/detect temp sensors")
+(sudo "~/mining/setup/detect temp sensors") then (sudo reboot)
 
 Download the mining software that you wish to use by following these steps:
 - Navigate to the ethereum mining github releases page:
