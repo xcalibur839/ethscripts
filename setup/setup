@@ -10,7 +10,7 @@ cd ~/mining/
 crontab .customCron
 
 echo " ************ Setting permissions ************ "
-chmod +x -R . ~/mining/scripts/* ~/mining/logs/autoarchive
+chmod +x -R ~/mining/scripts/* ~/mining/logs/autoarchive
 
 echo " ************ Creating shortcuts ************ "
 ln -s ~/mining/scripts/start ~/
