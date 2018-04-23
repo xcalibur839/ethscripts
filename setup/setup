@@ -1,18 +1,33 @@
 #!/bin/bash
+echo
 echo " ************ Installing required software ************ "
 sudo apt update
-sudo apt -y upgrade
-sudo apt install -y htop
-sudo apt install -y lm-sensors
+sudo apt upgrade -y
 
+if [ ! $(which htop) ]
+then
+    sudo apt install -y htop
+fi
+
+if [ ! $(which sensors) ]
+then
+    sudo apt install -y lm-sensors
+fi
+
+sleep 1
+echo
 echo " ************ Setting up scheduled task ************ "
 cd ~/mining/
 crontab .customCron
 
+sleep 1
+echo
 echo " ************ Setting permissions ************ "
-chmod +x -R ~/mining/scripts/* ~/mining/logs/autoarchive ~/mining/setup/*
+chmod +x -vR ~/mining/scripts/* ~/mining/logs/autoarchive ~/mining/setup/*
 
+sleep 1
+echo
 echo " ************ Creating shortcuts ************ "
-ln -s ~/mining/scripts/start ~/
-ln -s ~/mining/scripts/update ~/
-ln -s ~/mining/scripts/getNewMiner ~/
+ln -v -s ~/mining/scripts/start ~/
+ln -v -s ~/mining/scripts/update ~/
+ln -v -s ~/mining/scripts/getNewMiner ~/
