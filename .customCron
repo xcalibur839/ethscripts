@@ -20,4 +20,4 @@
 # For more information see the manual pages of crontab(5) and cron(8)
 # 
 # m h  dom mon dow   command
-0 10  1 * * ~/mining/logs/autoarchive >> ~/mining/logs/archive/autoarchive.log 2>&1
+0 10  1 * * ~/mining/scripts/autoarchive-logs >> ~/mining/logs/archive/autoarchive.log 2>&1

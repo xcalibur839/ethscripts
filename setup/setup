@@ -23,7 +23,7 @@ crontab .customCron
 sleep 1
 echo
 echo " ************ Setting permissions ************ "
-chmod +x -vR ~/mining/scripts/* ~/mining/logs/autoarchive ~/mining/setup/*
+chmod +x -vR ~/mining/scripts/* ~/mining/setup/*
 
 sleep 1
 echo
