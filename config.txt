@@ -1,5 +1,6 @@
-wallet=0xFBd8982c60D0F93304915c33201655eF234C5aE9
-rig=Rig1
-protocol=stratum+ssl
-stratum1=us2.ethermine.org:5555
-stratum2=us1.ethermine.org:5555
+wallet="0xFBd8982c60D0F93304915c33201655eF234C5aE9"
+rig="Rig1"
+protocol="stratum+ssl"
+stratum1="us2.ethermine.org:5555"
+stratum2="us1.ethermine.org:5555"
+params="--opencl"

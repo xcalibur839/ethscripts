@@ -5,6 +5,6 @@ set +a
 minerPath=$(cat ~/mining/.ethminerpath)
 
 printf "\n\n\n************$(date)************\n\n\n" >> ~/mining/logs/mining.log
-~/mining/ethminer/$minerPath/bin/ethminer -HWMON 1 --opencl --farm-recheck 200 \
+~/mining/ethminer/$minerPath/bin/ethminer -HWMON 1 $params --farm-recheck 200 \
 -P $protocol://$wallet.$rig@$stratum1 -P $protocol://$wallet.$rig@$stratum2 \
 -RH 2>&1 | tee -a ~/mining/logs/mining.log
