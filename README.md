@@ -5,6 +5,15 @@
 
 ## Installation:
 
+### Easy installation using [easy-script-install.sh:](https://github.com/xcalibur839/easy-script-install)
+Run the following commands from bash (tested on Ubuntu Server 16.04.4):
+
+- `curl -sSL http://ethscripts.gohanserver.com > easy-script-install.sh`
+- `chmod +x easy-script-install.sh`
+- `./easy-script-install.sh`
+
+### Manual installation:
+
 - Download this package to your $HOME directory on Linux 
 `git clone https://github.com/xcalibur839/ethscripts.git ~/mining`
 - Change to the setup directory `cd ~/mining/setup/`
