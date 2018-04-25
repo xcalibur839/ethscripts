@@ -1,4 +1,4 @@
-### Enter your wallet address below and a name for this rig.
+### Enter your wallet address and a name for this rig.
 
 wallet="0xa7fd48af65A05717cc1E150fe7E9e6656d2470e1"
 rig="Rig1"
@@ -16,6 +16,12 @@ protocol="stratum+ssl"
 stratum1="us2.ethermine.org:5555"
 stratum2="us1.ethermine.org:5555"
 
+###############################
+### AUTOMATIC CONFIGURATION ###
+###############################
+
+### Do not modify the settings below unless you know what you are doing.
+
 ### GPU config specific parameters. 
 # These parameters control AMD/NVIDIA/Both optimizations.
 # AMD GPUs should use --opencl, NVIDIA should use --cuda
@@ -25,27 +31,8 @@ stratum2="us1.ethermine.org:5555"
 # This is required because the NVIDIA cards will show up as both CUDA and OpenCL capable.
 
 # Be sure to specify the --opencl-platform number for the AMD cards.
-# You can confirm which number is correct by running: 
-# ~/mining/ethminer/$(cat ~/mining/.ethminerpath)/bin/ethminer --list-devices
-
-# Under the section Listing OpenCL devices, look for something like:
-# [0] [0] Ellesmere
-#         ...
-# [0] [1] Ellesmere
-#         ...
-# etc...
-
-# The value of --opencl-platform should match the first []. So:
-# [0] [0] Ellesmere
-
-# Means: 
-# --opencl-platform 0
-
-# And:
-# [1] [0] Ellesmere
-
-# Means: 
-# --opencl-platform 1
+# You can automatically detect and update this number by running:
+# ~/mining/scripts/getOpenClPlatform
 
 platform=0
 params="--opencl"
