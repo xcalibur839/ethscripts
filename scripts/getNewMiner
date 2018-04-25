@@ -98,6 +98,9 @@ else
 
     updatePath $minerFolder
 
+    echo "Detecting platform..."
+    ~/mining/scripts/getOpenClPlatform
+
     echo "Done!"
     sleep 2
 fi
