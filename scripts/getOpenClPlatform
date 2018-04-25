@@ -1,4 +1,7 @@
 #!/bin/bash
-platform="~/mining/ethminer/$(cat ~/mining/.ethminerpath)/bin/ethminer \
---list-devices 2>/dev/null | grep -m 1 "\[[01]" | cut -d'[' -f 2 | sed 's/[][]//g'"
-sed -i 's/\(^platform=\).*/\1$platform/' ~/mining/config.txt
+platform=$(~/mining/ethminer/$(cat ~/mining/.ethminerpath)/bin/ethminer \
+--list-devices 2>/dev/null | grep -m 1 "\[[01]" | cut -d'[' -f 2 | sed 's/[][]//g')
+if [ -e $platform ]
+then
+    sed -i "s/\(^platform=\).*/\1$platform/" ~/mining/config.txt
+fi
