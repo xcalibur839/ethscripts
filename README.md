@@ -65,3 +65,6 @@ Press Ctrl + a and then " (quotation mark) to view the default list of windows:
 
 For more information on how to use GNU screen, search online for commmands or
 see the built in manual `man screen`.
+
+Donations welcome:
+0xa7fd48af65A05717cc1E150fe7E9e6656d2470e1
