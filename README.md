@@ -6,9 +6,16 @@
 ## Installation:
 
 ### Easy installation using [easy-script-install.sh:](https://github.com/xcalibur839/easy-script-install)
-Run the following commands from bash (tested on Ubuntu Server 16.04.4):
+Run the following command from bash (tested on Ubuntu Server 16.04.4):
 
-- `curl -sSL http://ethscripts.gohanserver.com > easy-script-install.sh`
+`curl -sSL http://ethscripts.gohanserver.com > easy-script-install.sh; chmod +x easy-script-install.sh; ./easy-script-install.sh`
+
+If you would like to see what the script does before running it run:
+
+`curl -sSL http://ethscripts.gohanserver.com > easy-script-install.sh; nano easy-script-install.sh`
+
+Once you are ready to run the script, run the below two commands:
+
 - `chmod +x easy-script-install.sh`
 - `./easy-script-install.sh`
 
