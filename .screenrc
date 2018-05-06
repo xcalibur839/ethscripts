@@ -1,6 +1,8 @@
-layout new
-layout autosave
+layout new Mining
+layout autosave on
 screen -t Mining 0 $HOME/mining/scripts/beginMining
 screen -t HTOP 1 htop
 screen -t "Watch Sensors" 2 watch sensors
 screen 3
+focus
+select 0
