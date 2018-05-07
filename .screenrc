@@ -1,4 +1,3 @@
-layout new Mining
 layout autosave on
 screen -t Mining 0 $HOME/mining/scripts/beginMining
 screen -t HTOP 1 htop

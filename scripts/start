@@ -1,1 +1,2 @@
+#!/bin/bash
 screen -c ~/mining/.screenrc -xRR -S Mining
