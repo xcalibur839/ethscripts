@@ -1,7 +1,8 @@
 # Gohan Ethermine Scripts Package
 
-#### Debian based distros only, as these scripts rely heavily on apt.
-#### Tested to be functional on Ubuntu Server 16.04 LTS and Mint 18.2.
+This is a collection of scripts written for the purpose of going from a clean Ubuntu Server 16.04 installation to a completely configured and running Ethereum mining rig. 
+
+_**Note**: These scripts have been tested on Ubuntu 16.04 (Desktop and Server). These scripts install drivers made for 16.04, and will not function properly on Ubuntu 17.10 or 18.04. Please skip the driver installation step and install suitable drivers manually after setup completes if you are running either of these versions._
 
 ## Installation:
 
@@ -10,7 +11,7 @@ Run the following command from bash (tested on Ubuntu Server 16.04.4):
 
 `curl -sSL http://ethscripts.gohanserver.com > easy-script-install.sh; chmod +x easy-script-install.sh; ./easy-script-install.sh`
 
-If you would like to see what the script does before running it run:
+If you would like to see what the script does before running it:
 
 `curl -sSL http://ethscripts.gohanserver.com > easy-script-install.sh; nano easy-script-install.sh`
 
