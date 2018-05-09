@@ -1,0 +1,47 @@
+#!/bin/bash
+echo "This script will allow you to set custom fan and clock (core and memory) speeds for AMD cards."
+echo
+echo
+echo "The following cards are available: "
+ls -d1 /sys/class/drm/card?|cut -f5 -d'/'
+echo
+read -p "Enter the card number you would like to modify: " cardNum
+echo
+read -p "Enter the manual fan speed percentage 1-100 (or 0 for auto fan speed): " fanSpeed
+
+if [ $fanSpeed -ge 1 && $fanSpeed -le 100 ]
+then
+    sudo echo "1" > /sys/class/drm/card$cardNum/device/hwmon/hwmon0/pwm1_enable
+    sudo echo $fanSpeed > /sys/class/drm/card$cardNum/device/hwmon/hwmon0/pwm1
+    echo "Fan speed set to $fanSpeed%"
+else
+    echo "Fan speed has not been manually set"
+fi
+
+echo "Enter the Core Clock overclock percentage 1-100 (0 for none)"
+read -p "negative percentages will underclock the card: " coreClk
+
+if [ $coreClk -ge -100 && $coreClk -le 100 ]
+then
+    sudo echo $coreClk > /sys/class/drm/card$cardNum/device/pp_sclk_od
+    echo "Core clock changed by $coreClk%"
+else
+    echo "Core clock has not been changed"
+fi
+
+echo "Enter the Memory Clock overclock percentage 1-100 (0 for none)"
+read -p "negative percentages will underclock the card: " memClk
+
+if [ $memClk -ge -100 && $memClk -le 100 ]
+then
+    sudo echo $memClk > /sys/class/drm/card$cardNum/device/pp_mclk_od
+    echo "Core clock changed by $memClk%"
+else
+    echo "Core clock has not been changed"
+fi
+
+echo
+echo
+echo "Complete! The card monitor will now start..."
+read -p "Press Enter to reboot or Ctrl + c to exit"
+sudo watch cat /sys/kernel/debug/dri/$cardNum/amdgpu_pm_info
