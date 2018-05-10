@@ -9,7 +9,7 @@ read -p "Enter the card number you would like to modify: " cardNum
 echo
 read -p "Enter the manual fan speed percentage 1-100 (or 0 for auto fan speed): " fanSpeed
 
-if [ $fanSpeed -ge 1 && $fanSpeed -le 100 ]
+if [ $fanSpeed -ge 1 -a $fanSpeed -le 100 ]
 then
     sudo echo "1" > /sys/class/drm/card$cardNum/device/hwmon/hwmon0/pwm1_enable
     sudo echo $fanSpeed > /sys/class/drm/card$cardNum/device/hwmon/hwmon0/pwm1
@@ -21,7 +21,7 @@ fi
 echo "Enter the Core Clock overclock percentage 1-100 (0 for none)"
 read -p "negative percentages will underclock the card: " coreClk
 
-if [ $coreClk -ge -100 && $coreClk -le 100 ]
+if [ $coreClk -ge -100 -a $coreClk -le 100 ]
 then
     sudo echo $coreClk > /sys/class/drm/card$cardNum/device/pp_sclk_od
     echo "Core clock changed by $coreClk%"
@@ -32,7 +32,7 @@ fi
 echo "Enter the Memory Clock overclock percentage 1-100 (0 for none)"
 read -p "negative percentages will underclock the card: " memClk
 
-if [ $memClk -ge -100 && $memClk -le 100 ]
+if [ $memClk -ge -100 -a $memClk -le 100 ]
 then
     sudo echo $memClk > /sys/class/drm/card$cardNum/device/pp_mclk_od
     echo "Core clock changed by $memClk%"
