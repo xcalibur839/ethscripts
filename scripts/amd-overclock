@@ -43,5 +43,5 @@ fi
 echo
 echo
 echo "Complete! The card monitor will now start..."
-read -p "Press Enter to reboot or Ctrl + c to exit"
+read -p "Press Enter to continue or Ctrl + c to exit"
 sudo watch cat /sys/kernel/debug/dri/$cardNum/amdgpu_pm_info
