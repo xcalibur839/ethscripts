@@ -8,8 +8,16 @@ function setFan {
         echo "Setting fan speed to $2%"
 
         hwmonDir=$(ls $hwDir$1/device/hwmon/)
-        sudo echo "1" > $hwDir$1/device/hwmon/$hwmonDir/pwm1_enable
-        sudo echo $2 > $hwDir$1/device/hwmon/$hwmonDir/pwm1
+
+        if [ -z $hwmonDir ]
+        then
+            echo "Unable to detect fan controls. Fan speed not set"
+            echo "Did you run the detect-temp-sensors script?"
+            echo
+        else
+            sudo echo "1" > $hwDir$1/device/hwmon/$hwmonDir/pwm1_enable
+            sudo echo $2 > $hwDir$1/device/hwmon/$hwmonDir/pwm1
+        fi
     else
         echo "Missing setFan parameters"
     fi
