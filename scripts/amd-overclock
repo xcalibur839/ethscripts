@@ -6,8 +6,10 @@ function setFan {
     if [ $1 -a $2 ]
     then
         echo "Setting fan speed to $2%"
-        sudo echo "1" > $hwDir$1/device/hwmon/hwmon0/pwm1_enable
-        sudo echo $2 > $hwDir$1/device/hwmon/hwmon0/pwm1
+
+        hwmonDir=$(ls $hwDir$1/device/hwmon/)
+        sudo echo "1" > $hwDir$1/device/hwmon/$hwmonDir/pwm1_enable
+        sudo echo $2 > $hwDir$1/device/hwmon/$hwmonDir/pwm1
     else
         echo "Missing setFan parameters"
     fi
