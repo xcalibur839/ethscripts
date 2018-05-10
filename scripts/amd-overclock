@@ -38,6 +38,7 @@ then
 else
     invalidPercent
 fi
+echo
 
 echo "Enter the Core Clock overclock percentage 1-100 (0 for none)"
 read -p "negative percentages will underclock the card: " coreClk
@@ -52,6 +53,7 @@ then
 else
     invalidPercent
 fi
+echo
 
 echo "Enter the Memory Clock overclock percentage 1-100 (0 for none)"
 read -p "negative percentages will underclock the card: " memClk
