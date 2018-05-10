@@ -64,7 +64,7 @@ then
 elif [ $memClk -ge -100 -a $memClk -le 100 ]
 then
     sudo echo $memClk > $hwDir$cardNum/device/pp_mclk_od
-    echo "Core clock changed by $memClk%"
+    echo "Memory clock changed by $memClk%"
 else
     invalidPercent
 fi
