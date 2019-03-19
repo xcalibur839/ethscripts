@@ -15,8 +15,8 @@ function setFan {
             echo "Did you run the detect-temp-sensors script?"
             echo
         else
-            sudo echo "1" > $hwDir$1/device/hwmon/$hwmonDir/pwm1_enable
-            sudo echo $2 > $hwDir$1/device/hwmon/$hwmonDir/pwm1
+            sudo echo "1" > $hwDir$1/device/hwmon/$hwmonDir/fan1_enable
+            sudo echo $( echo "$( cat $hwDir$1/device/hwmon/$hwmonDir/fan1_max | tr -d '\n' ) * $( echo "scale=2; $2/100" | bc )" | bc | cut -d'.' -f 1) > $hwDir$1/device/hwmon/$hwmonDir/fan1_target
         fi
     else
         echo "Missing setFan parameters"
